@@ -412,8 +412,7 @@
 <p>然后会跳出如下界面</p>
 <p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.4/img/custom/kali/Snipaste_2021-03-28_15-05-15.png"></p>
 <p>接来下就去网上找一个源放进去，这边贴上我用的中科大的源</p>
-<pre><code>
-#中科大的源
+<pre><code>#中科大的源
 deb http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib
 deb-src http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib
 </code></pre>
@@ -421,11 +420,27 @@ deb-src http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib
 <p>关闭，选择“是”</p>
 <p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.4/img/custom/kali/Snipaste_2021-03-28_15-07-26.png"></p>
 <p>之后只需输入指令</p>
-<pre><code>
-sudo apt-get update
+<pre><code>sudo apt-get update
 sudo apt-get dist-upgrade
 </code></pre>
 <p>kali的换源就完成了，想查看有没有换源成功只需要进文件看一眼即可</p>
+<h1 id="kali切换root身份运行"><a href="#kali切换root身份运行" class="headerlink" title="kali切换root身份运行"></a>kali切换root身份运行</h1><p>首先先来解释一下什么是root身份，root身份就是指Linux系统中的超级管理员，更方便的进行对文件的更删改查，虽然可以在命令窗口更换root身份，但直接以root身份运行会更加的方便。以下是讲解如何更换成以root身份运行kali</p>
+<p>首先是在开机运行到如下界面是按下“E”</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.5/img/custom/kali/Snipaste_2021-03-28_23-04-50.png"></p>
+<p>之后便会跳转到此界面</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.5/img/custom/kali/Snipaste_2021-03-28_23-04-57.png"></p>
+<p>找到图中最后一行的地方，将ro改为rw，并在最后添加命令</p>
+<pre><code>init=/bin/bash
+</code></pre>
+<p>结果如下图所示</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.5/img/custom/kali/Snipaste_2021-03-28_23-04-45.png"></p>
+<p>按“F10”运行，进入单用户的命令行模式，按下图方式输入并设置新密码</p>
+<p>root@(none):/# passwd root<br>New password:<br>Retype new password:</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.5/img/custom/kali/Snipaste_2021-03-28_23-05-02.png"></p>
+<p>显示成功后回到vm中重启虚拟机（成功设定后会再跳出设置账户的命令，直接重启即可）在登录界面在用户名输入root，密码为自己设置的密码</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.5/img/custom/kali/Snipaste_2021-03-28_23-05-18.png"></p>
+<p>之后打开终端，便会出现下图的形式，至此更改为root身份运行完成</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.5/img/custom/kali/Snipaste_2021-03-28_23-01-52.png"></p>
 
         </div>
         <!-- .entry-content -->
@@ -498,7 +513,7 @@ sudo apt-get dist-upgrade
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -510,10 +525,10 @@ sudo apt-get dist-upgrade
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            // PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
         },
         ROOT_URL: '/',
         CONTENT_URL: '../../../../content.json',
