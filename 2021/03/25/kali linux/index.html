@@ -394,6 +394,38 @@
 <p>完事了我们就可以进入kali的系统了（有一说一kali的这个默认桌面还是挺帅的）</p>
 <p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v1.8/img/custom/kali/Snipaste_2021-03-27_12-20-08.png"></p>
 <p>这样咱们的kali linux基本的安装就完成了</p>
+<h1 id="kali换源"><a href="#kali换源" class="headerlink" title="kali换源"></a>kali换源</h1><p>众所周知，咱们上国外网站的速度慢的离谱（像我之前用hexo搭博客的时候下东西看着几kb的速度差点没疯，为此还特地去搭个梯子）然后kali默认源是国外网站，为了速度和稳定，在正式开始之前还需要进行换源操作</p>
+<p>接下来便是kali换源的教程（这东西网上一搜其实挺多的，这边只是提供了我换源的方法）</p>
+<p>右键选择“在这里打开终端”</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.4/img/custom/kali/Snipaste_2021-03-28_14-48-15.png"></p>
+<p>先安装leafpad,在指令界面输入</p>
+<pre><code>sudo apt-get install leafpad 
+</code></pre>
+<p>root用户可以去掉sudo</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.4/img/custom/kali/Snipaste_2021-03-28_15-00-40.png"></p>
+<p>输入密码，注意linux里面输入密码都是不会显示的，不是电脑卡了（当然如果是真卡这边建议直接换电脑</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.4/img/custom/kali/Snipaste_2021-03-28_15-00-59.png"></p>
+<p>安装完之后输入指令</p>
+<pre><code>sudo leafpad /etc/apt/sources.list
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.4/img/custom/kali/Snipaste_2021-03-28_15-04-15.png"></p>
+<p>然后会跳出如下界面</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.4/img/custom/kali/Snipaste_2021-03-28_15-05-15.png"></p>
+<p>接来下就去网上找一个源放进去，这边贴上我用的中科大的源</p>
+<pre><code>
+#中科大的源
+deb http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib
+deb-src http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.4/img/custom/kali/Snipaste_2021-03-28_15-06-36.png"></p>
+<p>关闭，选择“是”</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.4/img/custom/kali/Snipaste_2021-03-28_15-07-26.png"></p>
+<p>之后只需输入指令</p>
+<pre><code>
+sudo apt-get update
+sudo apt-get dist-upgrade
+</code></pre>
+<p>kali的换源就完成了，想查看有没有换源成功只需要进文件看一眼即可</p>
 
         </div>
         <!-- .entry-content -->
