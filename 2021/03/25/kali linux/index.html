@@ -394,7 +394,7 @@
 <p>完事了我们就可以进入kali的系统了（有一说一kali的这个默认桌面还是挺帅的）</p>
 <p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v1.8/img/custom/kali/Snipaste_2021-03-27_12-20-08.png"></p>
 <p>这样咱们的kali linux基本的安装就完成了</p>
-<h1 id="kali切换root身份运行"><a href="#kali切换root身份运行" class="headerlink" title="kali切换root身份运行"></a>kali切换root身份运行</h1><p>首先先来解释一下什么是root身份，root身份就是指Linux系统中的超级管理员，更方便的进行对文件的更删改查，虽然可以在命令窗口更换root身份，但直接以root身份运行会更加的方便。以下是讲解如何更换成以root身份运行kali</p>
+<h1 id="kali切换root身份运行"><a href="#kali切换root身份运行" class="headerlink" title="kali切换root身份运行"></a>kali切换root身份运行</h1><p>首先先来解释一下什么是root身份，root身份就是指Linux系统中的超级管理员，更方便的进行对文件的更删改查，虽然可以在命令窗口更换root身份，但直接以root身份运行会更加的方便。以下是讲解如何更换成以root身份运行kali。（之后大部分操作均在root中操作，不做过多声明）</p>
 <p>首先是在开机运行到如下界面是按下“E”</p>
 <p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.5/img/custom/kali/Snipaste_2021-03-28_23-04-50.png"></p>
 <p>之后便会跳转到此界面</p>
@@ -418,7 +418,7 @@
 <p>先安装leafpad,在指令界面输入</p>
 <pre><code>sudo apt-get install leafpad 
 </code></pre>
-<p>root用户可以去掉sudo，切换root身份的教程在上面有写（这边为防有人没改我就按照正常方式进行操作）</p>
+<p>root用户可以去掉sudo，切换root身份的教程在上面有写（咳咳，这边为防有人没改我就按照正常方式进行操作，最后一次再说。。）</p>
 <p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.4/img/custom/kali/Snipaste_2021-03-28_15-00-40.png"></p>
 <p>输入密码，注意linux里面输入密码都是不会显示的，不是电脑卡了（当然如果是真卡这边建议直接换电脑</p>
 <p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.4/img/custom/kali/Snipaste_2021-03-28_15-00-59.png"></p>
@@ -441,6 +441,39 @@ deb-src http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib
 sudo apt-get dist-upgrade
 </code></pre>
 <p>kali的换源就完成了，想查看有没有换源成功只需要进文件看一眼即可</p>
+<h1 id="kali配置SSH"><a href="#kali配置SSH" class="headerlink" title="kali配置SSH"></a>kali配置SSH</h1><p>SSH是一种安全网络协议，是为远程登录以及其他网络服务提供安全性的协议，能够有效弥补网络中的漏洞。SSH采用非对称加密把所有传输的数据进行加密，有效防止DNS欺骗和IP欺骗。在Linux中SSH已经是一种标准配置，因此这边咱们的kali也需要配置SSH。当然也不是说SSH就是绝对安全，也容易受到中间人攻击，这里就不做过多的说明。</p>
+<p>首先打开终端，输入如下指令</p>
+<pre><code>service ssh status
+</code></pre>
+<p>发现这边Active显示的是inactive（如果显示运行的自动跳过此教程）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.6/img/custom/kali/Snipaste_2021-03-29_18-46-09.png"></p>
+<p>输入</p>
+<pre><code>leafpad /etc/ssh/sshd_config
+</code></pre>
+<p>以文本形式打开指定文件</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.6/img/custom/kali/Snipaste_2021-03-29_18-48-11.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.6/img/custom/kali/Snipaste_2021-03-29_18-48-39.png"></p>
+<p>查找到指定位置，内容如下</p>
+<pre><code>PasswordAuthentication yes
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.6/img/custom/kali/Snipaste_2021-03-29_18-52-06.png"></p>
+<p>可以看到这条指令是注释了的，将前面的#去掉</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.6/img/custom/kali/Snipaste_2021-03-29_18-52-20.png"></p>
+<p>再找到如下位置</p>
+<pre><code>PermitRootLogin prohibit-password
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.6/img/custom/kali/Snipaste_2021-03-29_19-00-46.png"></p>
+<p>同样去掉前面的#，并把prohibit-password改成yes</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.6/img/custom/kali/Snipaste_2021-03-29_19-01-15.png"></p>
+<p>此时回到终端，输入</p>
+<pre><code>service ssh start
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.6/img/custom/kali/Snipaste_2021-03-29_19-03-40.png"></p>
+<p>这时候输入</p>
+<pre><code>service ssh status
+</code></pre>
+<p>发现此时的Active变成了active（running）我们的配置就完成了。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.6/img/custom/kali/Snipaste_2021-03-29_19-04-20.png"></p>
 
         </div>
         <!-- .entry-content -->
@@ -513,7 +546,7 @@ sudo apt-get dist-upgrade
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -525,10 +558,10 @@ sudo apt-get dist-upgrade
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '../../../../content.json',
