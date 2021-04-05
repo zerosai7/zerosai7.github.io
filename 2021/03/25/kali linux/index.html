@@ -387,7 +387,7 @@
 <p>完事了我们就可以进入kali的系统了（有一说一kali的这个默认桌面还是挺帅的）</p>
 <p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v1.8/img/custom/kali/Snipaste_2021-03-27_12-20-08.png"></p>
 <p>这样咱们的kali linux基本的安装就完成了</p>
-<h1 id="kali切换root身份运行"><a href="#kali切换root身份运行" class="headerlink" title="kali切换root身份运行"></a>kali切换root身份运行</h1><p>首先先来解释一下什么是root身份，root身份就是指Linux系统中的超级管理员，更方便的进行对文件的更删改查，虽然可以在命令窗口更换root身份，但直接以root身份运行会更加的方便。以下是讲解如何更换成以root身份运行kali。（之后大部分操作均在root中操作，不做过多声明）</p>
+<h1 id="切换root身份运行"><a href="#切换root身份运行" class="headerlink" title="切换root身份运行"></a>切换root身份运行</h1><p>首先先来解释一下什么是root身份，root身份就是指Linux系统中的超级管理员，更方便的进行对文件的更删改查，虽然可以在命令窗口更换root身份，但直接以root身份运行会更加的方便。以下是讲解如何更换成以root身份运行kali。（之后大部分操作均在root中操作，不做过多声明）</p>
 <p>首先是在开机运行到如下界面是按下“E”</p>
 <p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.5/img/custom/kali/Snipaste_2021-03-28_23-04-50.png"></p>
 <p>之后便会跳转到此界面</p>
@@ -404,7 +404,7 @@
 <p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.5/img/custom/kali/Snipaste_2021-03-28_23-05-18.png"></p>
 <p>之后打开终端，便会出现下图的形式，至此更改为root身份运行完成</p>
 <p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.5/img/custom/kali/Snipaste_2021-03-28_23-01-52.png"></p>
-<h1 id="kali换源"><a href="#kali换源" class="headerlink" title="kali换源"></a>kali换源</h1><p>众所周知，咱们上国外网站的速度慢的离谱（像我之前用hexo搭博客的时候下东西看着几kb的速度差点没疯，为此还特地去搭个梯子）然后kali默认源是国外网站，为了速度和稳定，在正式开始之前还需要进行换源操作</p>
+<h1 id="换源"><a href="#换源" class="headerlink" title="换源"></a>换源</h1><p>众所周知，咱们上国外网站的速度慢的离谱（像我之前用hexo搭博客的时候下东西看着几kb的速度差点没疯，为此还特地去搭个梯子）然后kali默认源是国外网站，为了速度和稳定，在正式开始之前还需要进行换源操作</p>
 <p>接下来便是kali换源的教程（这东西网上一搜其实挺多的，这边只是提供了我换源的方法）</p>
 <p>右键选择“在这里打开终端”</p>
 <p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.4/img/custom/kali/Snipaste_2021-03-28_14-48-15.png"></p>
@@ -434,7 +434,7 @@ deb-src http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib
 sudo apt-get dist-upgrade
 </code></pre>
 <p>kali的换源就完成了，想查看有没有换源成功只需要进文件看一眼即可</p>
-<h1 id="kali配置SSH"><a href="#kali配置SSH" class="headerlink" title="kali配置SSH"></a>kali配置SSH</h1><p>SSH是一种安全网络协议，是为远程登录以及其他网络服务提供安全性的协议，能够有效弥补网络中的漏洞。SSH采用非对称加密把所有传输的数据进行加密，有效防止DNS欺骗和IP欺骗。在Linux中SSH已经是一种标准配置，因此这边咱们的kali也需要配置SSH。当然也不是说SSH就是绝对安全，也容易受到中间人攻击，这里就不做过多的说明。</p>
+<h1 id="配置SSH"><a href="#配置SSH" class="headerlink" title="配置SSH"></a>配置SSH</h1><p>SSH是一种安全网络协议，是为远程登录以及其他网络服务提供安全性的协议，能够有效弥补网络中的漏洞。SSH采用非对称加密把所有传输的数据进行加密，有效防止DNS欺骗和IP欺骗。在Linux中SSH已经是一种标准配置，因此这边咱们的kali也需要配置SSH。当然也不是说SSH就是绝对安全，也容易受到中间人攻击，这里就不做过多的说明。</p>
 <p>首先打开终端，输入如下指令</p>
 <pre><code>service ssh status
 </code></pre>
@@ -470,6 +470,13 @@ sudo apt-get dist-upgrade
 <p>最后再加上一条指令设置开机自启</p>
 <pre><code>update-rc.d ssh enable
 </code></pre>
+<h1 id="关闭自动熄屏"><a href="#关闭自动熄屏" class="headerlink" title="关闭自动熄屏"></a>关闭自动熄屏</h1><p>kali系统里面默认的过一段时间会自动熄屏，说实话挺不方便的，比如你跳出去看看教学视频（摸鱼）或者上个厕所什么的，kali就会自动回到锁屏界面，如下图所示，就会要重新输入账号密码进入，这里将说明如何关掉</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.9/img/custom/kali/Snipaste_2021-04-05_22-45-49.png"></p>
+<p>首先在左上角进入设置，选择电源管理器</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.9/img/custom/kali/Snipaste_2021-04-05_22-47-27.png"></p>
+<p>进去后选择安全性，第一栏改成从不，最后的勾选去掉</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.9/img/custom/kali/Snipaste_2021-04-05_22-48-39.png"></p>
+<p>这样就能关掉自动熄屏，可以安心摸鱼了（不是）</p>
 
         </div>
         <!-- .entry-content -->
@@ -542,7 +549,7 @@ sudo apt-get dist-upgrade
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -554,10 +561,10 @@ sudo apt-get dist-upgrade
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '../../../../content.json',
