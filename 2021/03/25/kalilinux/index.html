@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">OWASP Broken Web Apps渗透测试环境搭建 | zerosai7</title>
+  <title itemprop="name">kali linux的搭建及相关使用 | zerosai7</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -315,11 +315,11 @@
 
   <div class="pattern-center single-center">
     <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/zerosai7/cdn@v3.1/img/custom/owasp/OWASP.png);" src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v1.2/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v3.1/img/custom/owasp/OWASP.png">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.3/img/custom/kali.jpg);" src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v1.2/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.3/img/custom/kali.jpg">
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
-      OWASP Broken Web Apps渗透测试环境搭建</h1>
+      kali linux的搭建及相关使用</h1>
       <p class="entry-census">
         <span>
           <a href="">
@@ -331,7 +331,7 @@
         </span>
         <span class="bull">
         ·</span>
-        2021-4-13<span class="bull">
+        2021-3-25<span class="bull">
         ·</span>
       <span id="busuanzi_value_page_pv"></span>次阅读</p>
     </header>
@@ -345,30 +345,138 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上一篇中写的是kali的渗透测试，既然是测试就需要用到靶机，因此这边给了一个简易的靶机搭建教程</p>
-<h1 id="下载镜像"><a href="#下载镜像" class="headerlink" title="下载镜像"></a>下载镜像</h1><p>先是给出下载地址：<a target="_blank" rel="noopener" href="https://sourceforge.net/projects/owaspbwa/files">https://sourceforge.net/projects/owaspbwa/files</a></p>
-<p>打开界面如下，选择第一个下载</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v3.1/img/custom/owasp/Snipaste_2021-04-13_14-52-09.png"></p>
-<p>这里虽然是2015年的，但没必要找最新版本，因为这只是个靶机，没必要很新的版本，里面设有漏洞我们能去进行测试即可，更新了说不定直接把漏洞一并修复了（狗头）</p>
-<p>点开第一个后依旧是选择第一个下载</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v3.1/img/custom/owasp/Snipaste_2021-04-13_14-52-09.png"></p>
-<h1 id="导入虚拟机"><a href="#导入虚拟机" class="headerlink" title="导入虚拟机"></a>导入虚拟机</h1><p>打开VM，选择打开虚拟机</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v3.1/img/custom/owasp/Snipaste_2021-04-13_14-56-09.png"></p>
-<p>找到刚刚下载的镜像并打开</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v3.1/img/custom/owasp/Snipaste_2021-04-13_14-56-22.png"></p>
-<p>设置虚拟机的名称及存储路径</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v3.1/img/custom/owasp/Snipaste_2021-04-13_14-57-58.png"></p>
-<p>这样就完成了</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v3.1/img/custom/owasp/Snipaste_2021-04-13_14-59-51.png"></p>
-<h1 id="登录及查询ip"><a href="#登录及查询ip" class="headerlink" title="登录及查询ip"></a>登录及查询ip</h1><p>打开虚拟机，进入登录界面，如下所示</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v3.1/img/custom/owasp/Snipaste_2021-04-13_15-01-38.png"></p>
-<p>输入账号和密码<br>账号：root<br>密码：owaspbwa</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v3.1/img/custom/owasp/Snipaste_2021-04-13_15-02-43.png"></p>
-<p>进去之后就能查到自己的ip，如果没有显示也可在命令窗口输入ifconfig来查询</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v3.1/img/custom/owasp/Snipaste_2021-04-13_15-04-03.png"></p>
-<p>之后我们访问查询到的ip，进入网站</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v3.1/img/custom/owasp/Snipaste_2021-04-13_15-08-01.png"></p>
-<p>这边是我们测试用的靶场，其中较为常用的就是Damn Vulnerable Web Application和OWASP Mutillidae II，可用于进行漏洞测试</p>
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近学校开始大创报名，我跟的是我的密码学老师做，然后老师给我的方向是私钥管理、口令破解等等，在第一次提出搭梯子以及网络传输协议中的中的加密，但是老师对这方面不熟悉后（当然我也有点担心这玩意比较敏感）我又想到了这个课题，学习kali linux的操作（可能会是用kali的字典破译密码之类的，这是暂定想法，之后可能会有改）感觉这方面的课题会做起来比较有趣</p>
+<h1 id="在虚拟机中安装kali"><a href="#在虚拟机中安装kali" class="headerlink" title="在虚拟机中安装kali"></a>在虚拟机中安装kali</h1><h2 id="在VM中新建虚拟机"><a href="#在VM中新建虚拟机" class="headerlink" title="在VM中新建虚拟机"></a>在VM中新建虚拟机</h2><p>(这里就跳过VM的安装过程了，直接在官网上下载即可，如果要输入产品密钥时可以直接百度上找一个)</p>
+<p>先是给上kali的镜像下载地址：<a target="_blank" rel="noopener" href="https://www.kali.org/downloads/">https://www.kali.org/downloads/</a></p>
+<p>创建新虚拟机</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v1.7/img/custom/Snipaste_2021-03-25_14-49-03.png"></p>
+<p>选择下载的镜像，会提示无法检测此光盘映像中的操作系统，在下一步中选择Linux，版本的话我这边选的是Ubuntu</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v1.7/img/custom/Snipaste_2021-03-25_14-50-12.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v1.7/img/custom/Snipaste_2021-03-25_14-50-31.png"></p>
+<p>选择安装路径</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v1.7/img/custom/Snipaste_2021-03-25_15-05-43.png"></p>
+<p>这边磁盘大小建议给大点，最好有40G。下面选择将虚拟磁盘储存为单个文件</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v1.7/img/custom/Snipaste_2021-03-25_15-06-36.png"></p>
+<p>这边的自定义硬件可按个人喜好进行调整</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v1.7/img/custom/Snipaste_2021-03-25_15-08-52.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v1.7/img/custom/Snipaste_2021-03-25_15-08-46.png"></p>
+<p>这样虚拟机就创建好了</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v1.7/img/custom/Snipaste_2021-03-25_15-09-25.png"></p>
+<h2 id="安装系统"><a href="#安装系统" class="headerlink" title="安装系统"></a>安装系统</h2><p>打开虚拟机后进入如下界面，选择第一个进行安装</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v1.8/img/custom/kali/Snipaste_2021-03-27_11-38-24.png"></p>
+<p>选择系统中使用的语言，区域，键盘映射</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v1.8/img/custom/kali/Snipaste_2021-03-27_11-38-15.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v1.8/img/custom/kali/Snipaste_2021-03-27_11-42-33.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v1.8/img/custom/kali/Snipaste_2021-03-27_11-42-40.png"></p>
+<p>输入系统的主机名（建议就直接用kali）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v1.8/img/custom/kali/Snipaste_2021-03-27_11-45-06.png"></p>
+<p>域名直接跳过就行</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v1.8/img/custom/kali/Snipaste_2021-03-27_11-45-46.png"></p>
+<p>接下来就是输入全名、用户名以及设置密码</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v1.8/img/custom/kali/Snipaste_2021-03-27_12-04-18.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v1.8/img/custom/kali/Snipaste_2021-03-27_12-05-15.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v1.8/img/custom/kali/Snipaste_2021-03-27_12-05-19.png"></p>
+<p>LVM是指逻辑卷，可根据需求自行选择，这边我选择的是第二个</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v1.8/img/custom/kali/Snipaste_2021-03-27_12-10-29.png"></p>
+<p>继续</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v1.8/img/custom/kali/Snipaste_2021-03-27_12-12-02.png"></p>
+<p>按推荐即可</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v1.8/img/custom/kali/Snipaste_2021-03-27_12-13-12.png"></p>
+<p>后面的内容并无太多需要修改，直接都选择是和继续就可以了（后续内容因为我之前已经装过kali系统，和首次安装的会有些区别，所以我就不贴图了）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v1.8/img/custom/kali/Snipaste_2021-03-27_12-15-57.png"></p>
+<p>完事了我们就可以进入kali的系统了（有一说一kali的这个默认桌面还是挺帅的）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v1.8/img/custom/kali/Snipaste_2021-03-27_12-20-08.png"></p>
+<p>这样咱们的kali linux基本的安装就完成了</p>
+<h1 id="切换root身份运行"><a href="#切换root身份运行" class="headerlink" title="切换root身份运行"></a>切换root身份运行</h1><p>首先先来解释一下什么是root身份，root身份就是指Linux系统中的超级管理员，更方便的进行对文件的更删改查，虽然可以在命令窗口更换root身份，但直接以root身份运行会更加的方便。以下是讲解如何更换成以root身份运行kali。（之后大部分操作均在root中操作，不做过多声明）</p>
+<p>首先是在开机运行到如下界面是按下“E”</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.5/img/custom/kali/Snipaste_2021-03-28_23-04-50.png"></p>
+<p>之后便会跳转到此界面</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.5/img/custom/kali/Snipaste_2021-03-28_23-04-57.png"></p>
+<p>找到图中最后一行的地方，将ro改为rw，并在最后添加命令</p>
+<pre><code>init=/bin/bash
+</code></pre>
+<p>结果如下图所示</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.5/img/custom/kali/Snipaste_2021-03-28_23-04-45.png"></p>
+<p>按“F10”运行，进入单用户的命令行模式，按下图方式输入并设置新密码</p>
+<p>root@(none):/# passwd root<br>New password:<br>Retype new password:</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.5/img/custom/kali/Snipaste_2021-03-28_23-05-02.png"></p>
+<p>显示成功后回到vm中重启虚拟机（成功设定后会再跳出设置账户的命令，直接重启即可）在登录界面在用户名输入root，密码为自己设置的密码</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.5/img/custom/kali/Snipaste_2021-03-28_23-05-18.png"></p>
+<p>之后打开终端，便会出现下图的形式，至此更改为root身份运行完成</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.5/img/custom/kali/Snipaste_2021-03-28_23-01-52.png"></p>
+<h1 id="换源"><a href="#换源" class="headerlink" title="换源"></a>换源</h1><p>众所周知，咱们上国外网站的速度慢的离谱（像我之前用hexo搭博客的时候下东西看着几kb的速度差点没疯，为此还特地去搭个梯子）然后kali默认源是国外网站，为了速度和稳定，在正式开始之前还需要进行换源操作</p>
+<p>接下来便是kali换源的教程（这东西网上一搜其实挺多的，这边只是提供了我换源的方法）</p>
+<p>右键选择“在这里打开终端”</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.4/img/custom/kali/Snipaste_2021-03-28_14-48-15.png"></p>
+<p>先安装leafpad,在指令界面输入</p>
+<pre><code>sudo apt-get install leafpad 
+</code></pre>
+<p>root用户可以去掉sudo，切换root身份的教程在上面有写（咳咳，这边为防有人没改我就按照正常方式进行操作，最后一次再说。。）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.4/img/custom/kali/Snipaste_2021-03-28_15-00-40.png"></p>
+<p>输入密码，注意linux里面输入密码都是不会显示的，不是电脑卡了（当然如果是真卡这边建议直接换电脑</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.4/img/custom/kali/Snipaste_2021-03-28_15-00-59.png"></p>
+<p>安装完之后输入指令</p>
+<pre><code>sudo leafpad /etc/apt/sources.list
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.4/img/custom/kali/Snipaste_2021-03-28_15-04-15.png"></p>
+<p>然后会跳出如下界面</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.4/img/custom/kali/Snipaste_2021-03-28_15-05-15.png"></p>
+<p>接来下就去网上找一个源放进去，这边贴上我用的中科大的源</p>
+<pre><code>#中科大的源
+deb http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib
+deb-src http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.4/img/custom/kali/Snipaste_2021-03-28_15-06-36.png"></p>
+<p>关闭，选择“是”</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.4/img/custom/kali/Snipaste_2021-03-28_15-07-26.png"></p>
+<p>之后只需输入指令</p>
+<pre><code>sudo apt-get update
+sudo apt-get dist-upgrade
+</code></pre>
+<p>kali的换源就完成了，想查看有没有换源成功只需要进文件看一眼即可</p>
+<h1 id="配置SSH"><a href="#配置SSH" class="headerlink" title="配置SSH"></a>配置SSH</h1><p>SSH是一种安全网络协议，是为远程登录以及其他网络服务提供安全性的协议，能够有效弥补网络中的漏洞。SSH采用非对称加密把所有传输的数据进行加密，有效防止DNS欺骗和IP欺骗。在Linux中SSH已经是一种标准配置，因此这边咱们的kali也需要配置SSH。当然也不是说SSH就是绝对安全，也容易受到中间人攻击，这里就不做过多的说明。</p>
+<p>首先打开终端，输入如下指令</p>
+<pre><code>service ssh status
+</code></pre>
+<p>发现这边Active显示的是inactive（如果显示运行的自动跳过此教程）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.6/img/custom/kali/Snipaste_2021-03-29_18-46-09.png"></p>
+<p>输入</p>
+<pre><code>leafpad /etc/ssh/sshd_config
+</code></pre>
+<p>以文本形式打开指定文件</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.6/img/custom/kali/Snipaste_2021-03-29_18-48-11.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.6/img/custom/kali/Snipaste_2021-03-29_18-48-39.png"></p>
+<p>查找到指定位置，内容如下</p>
+<pre><code>PasswordAuthentication yes
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.6/img/custom/kali/Snipaste_2021-03-29_18-52-06.png"></p>
+<p>可以看到这条指令是注释了的，将前面的#去掉</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.6/img/custom/kali/Snipaste_2021-03-29_18-52-20.png"></p>
+<p>再找到如下位置</p>
+<pre><code>PermitRootLogin prohibit-password
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.6/img/custom/kali/Snipaste_2021-03-29_19-00-46.png"></p>
+<p>同样去掉前面的#，并把prohibit-password改成yes</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.6/img/custom/kali/Snipaste_2021-03-29_19-01-15.png"></p>
+<p>此时回到终端，输入</p>
+<pre><code>service ssh start
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.6/img/custom/kali/Snipaste_2021-03-29_19-03-40.png"></p>
+<p>这时候输入</p>
+<pre><code>service ssh status
+</code></pre>
+<p>发现此时的Active变成了active（running）我们的配置就完成了。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.6/img/custom/kali/Snipaste_2021-03-29_19-04-20.png"></p>
+<p>最后再加上一条指令设置开机自启</p>
+<pre><code>update-rc.d ssh enable
+</code></pre>
+<h1 id="关闭自动熄屏"><a href="#关闭自动熄屏" class="headerlink" title="关闭自动熄屏"></a>关闭自动熄屏</h1><p>kali系统里面默认的过一段时间会自动熄屏，说实话挺不方便的，比如你跳出去看看教学视频（摸鱼）或者上个厕所什么的，kali就会自动回到锁屏界面，如下图所示，就会要重新输入账号密码进入，这里将说明如何关掉</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.9/img/custom/kali/Snipaste_2021-04-05_22-45-49.png"></p>
+<p>首先在左上角进入设置，选择电源管理器</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.9/img/custom/kali/Snipaste_2021-04-05_22-47-27.png"></p>
+<p>进去后选择安全性，第一栏改成从不，最后的勾选去掉</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.9/img/custom/kali/Snipaste_2021-04-05_22-48-39.png"></p>
+<p>这样就能关掉自动熄屏，可以安心摸鱼了（不是）</p>
 
         </div>
         <!-- .entry-content -->
@@ -397,19 +505,36 @@
       <div class="toc" style="background: none;"></div>
       <section class="post-squares nextprev">
         
+          
+            <div class="post-nepre half previous">
+          
+            <a href="../../../04/13/OWASP/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v1.2/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v3.1/img/custom/owasp/OWASP.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v3.1/img/custom/owasp/OWASP.png">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                OWASP Broken Web Apps渗透测试环境搭建</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
         
           
-            <div class="post-nepre full next">
+            <div class="post-nepre half next">
           
-            <a href="../../../03/25/kali%20linux/" rel="next">
+            <a href="../../../02/13/karmenrider/" rel="next">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v1.2/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.3/img/custom/kali.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v2.3/img/custom/kali.jpg">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v1.2/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v1.6/img/custom/background.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v1.6/img/custom/background.jpg">
               </div>
               <span class="label">
               Next Post</span>
               <div class="info">
                 <h3>
-                kali linux的搭建及相关使用</h3>
+                假面骑士新十年推荐</h3>
                 <hr>
               </div>
             </a>
