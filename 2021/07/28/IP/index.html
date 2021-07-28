@@ -313,19 +313,36 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
 <div class="pattern-center-blank"></div>
 
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/zerosai7/cdn@v3.6/img/custom/ip.jpg);" src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v1.2/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v3.6/img/custom/ip.jpg">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      IP地址与子网划分</h1>
+      <p class="entry-census">
+        <span>
+          <a href="">
+            <img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v1.4/img/custom/avatar.jpg">
+          </a>
+        </span>
+        <span>
+          <a href="">zerosai7</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2021-7-28<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
+  </div>
+
 <div id="content" class="site-content">
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
       <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
         <div class="toc"></div>
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
-        
-          <header class="entry-header">
-            <h1 class="entry-title">IP地址与子网划分</h1>
-            <p class="entry-census">zerosai7&nbsp;·&nbsp;2021-7-28&nbsp;·&nbsp;<span id="busuanzi_value_page_pv"></span>次阅读</p></p>
-
-            <hr>
-          </header>
         
         <div class="entry-content">
           <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>自己学习相关知识的时候比较零碎，想到什么就看什么，于是就想到要把这些东西整理出来，主要是写有关IP地址、子网划分、超网等概念，后面想到什么别的还会再补充。</p>
@@ -336,6 +353,21 @@
 <h3 id="性能"><a href="#性能" class="headerlink" title="性能"></a>性能</h3><p>IPv6简化了路由，加快了路由速度，且IPv6的QoS相比有了进一步的优化</p>
 <h3 id="安全"><a href="#安全" class="headerlink" title="安全"></a>安全</h3><p>在IPv6中加入了关于身份验证、数据一致性和保密性的内容，更加安全</p>
 <p>此外还有一些其他方面的区别，这里就不一一赘述</p>
+<h1 id="IP地址的类别"><a href="#IP地址的类别" class="headerlink" title="IP地址的类别"></a>IP地址的类别</h1><p>IP地址主要分为A、B、C、D、E五类，其中D类用于组播，E类用来研究，A、B、C三类是我们现用的，其中B、C类用的居多，下图中粉色部分为网络地址，黄色部分为主机地址。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v3.6/img/custom/ipcategory.jpg"></p>
+<h2 id="A、B、C三类的区分"><a href="#A、B、C三类的区分" class="headerlink" title="A、B、C三类的区分"></a>A、B、C三类的区分</h2><p> A、B、C三类的区分是按照网络号的前几位进行区分。</p>
+<p>A类首位为0，因此A类IP地址从00000000~01111111，即从从1.0.0.0 到126.255.255.255。可用的A类网络有126(2^7-2)个，每个网络能容纳16777214(2^24-2)个主机。其中127开头为本机的环回地址，一般为127.0.0.1</p>
+<p>B类首位为10，IP地址从10000000~10111111地址范围从128.0.0.0到191.255.255.255。可用的B类网络有16383(2^14-1)个，每个网络能容纳65534(2^16-2)台主机</p>
+<p>C类首位为110，IP地址从11000000~11011111地址范围从192.0.0.0到.223.255.255。可用的C类网络有2097151(2^21-1）个，每个网络能容纳254(2^8-2)台主机</p>
+<h1 id="子网掩码"><a href="#子网掩码" class="headerlink" title="子网掩码"></a>子网掩码</h1><p>子网掩码是用来决定了某个IP地址的网络号与主机号是什么，IP地址需要搭配子网掩码使用的。通过子网掩码和IP地址做与运算，来确定IP地址中的网络地址和主机地址。<br>例如写一个B类地址132.2.1.1，子网掩码是255.255.0.0，即可得到132.2为网络号，1.1为主机号，也有写成132.2.1.1/16的形式，即表示子网掩码中有16位为1，结果同上</p>
+<h1 id="特殊的IP地址"><a href="#特殊的IP地址" class="headerlink" title="特殊的IP地址"></a>特殊的IP地址</h1><h2 id="127-0-0-1"><a href="#127-0-0-1" class="headerlink" title="127.0.0.1"></a>127.0.0.1</h2><p>本地环回地址</p>
+<h2 id="169-254-x-x"><a href="#169-254-x-x" class="headerlink" title="169.254.x.x"></a>169.254.x.x</h2><p>在DHCP服务器故障，或者DHCP超时，不致于设备没有IP而造成连接不上而分配给主机的，但是不能正常上网，需要手动或重新自动分配IP</p>
+<h2 id="保留的私网地址"><a href="#保留的私网地址" class="headerlink" title="保留的私网地址"></a>保留的私网地址</h2><p>10.x.x.x<br>172.16.x.x ~ 172.31.x.x<br>192.168.0.x ~ 192.168.255.x</p>
+<h1 id="子网划分"><a href="#子网划分" class="headerlink" title="子网划分"></a>子网划分</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>每类的IP地址进一步分成更小的网络，通过子网掩码进行分辨。若不进行划分，所有的主机处于同一广播域下，这样节点数就会过多，有很多IP地址没有分配出去导致浪费。通过子网划分使得IP地址更好的利用，同时也能简化管理和提高性能。</p>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>通过增加子网掩码中1的位数，使得网络号的位数随之增加，从而将原来的网络分为若干个彼此隔离的子网，每个网中，第一个IP地址（即主机部分全部为0的IP）和最后一个IP（即主机部分全部为1的IP）不能分配给主机使用，所以每个子网的可用IP地址数为总IP地址数量减2(不能全为0或者全为1)。例如需要划分5~8个子网，则需要用3位来进行区分（2^3=8）,以C类为例，则子网掩码为255.255.255.224(11111111.11111111.11111111.11100000)，可使用的IP地址有30(2^(8-3)-2)个。</p>
+<h1 id="超网"><a href="#超网" class="headerlink" title="超网"></a>超网</h1><h2 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h2><p>超网是把一些小网络组合成一个大网络，用来解决路由列表超出现有软件和管理人力的问题以及提供B类网络地址空间耗尽的解决办法。由于人们更倾向于用B类地址，并在里面进行子网划分，导致B类地址紧缺，而C类地址能使用的地址过少，于是就采用了超网的方式进行合并，将多个连续的C类的网络地址聚合起来映射到一个物理网络上。</p>
+<h2 id="方法-1"><a href="#方法-1" class="headerlink" title="方法"></a>方法</h2><p>例如两台IP分别为192.168.0.1/24和192.168.1.1/24的计算机之间要通信，但不处于同一网段，则需要用路由器转发通信。若合并网段，将子网掩码左移一位，则不需要经过路由器转发。合并之后网络部分变为前23位。</p>
+<h2 id="合并规律"><a href="#合并规律" class="headerlink" title="合并规律"></a>合并规律</h2><p>不是任何连续的网段都能合并，子网掩码往左移动相应位数后，网络部分保持相同才能合并。判断连续的2个网段是否能够合并，只要第一个网络号能被2整除，就能够通过左移1位子网掩码合并。判断连续的4个网段是否能够合并，只要第一个网络号能被4整除，就能够通过左移2位子网掩码合并。依次类推，要想判断连续的8个网段是否能够合并，只要第一个网络号能被8整除，这8个连续的网段就能够通过左移3位子网掩码合并。</p>
 
         </div>
         <!-- .entry-content -->
@@ -422,7 +454,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -434,10 +466,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            // PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
         },
         ROOT_URL: '/',
         CONTENT_URL: '../../../../content.json',
