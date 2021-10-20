@@ -336,7 +336,7 @@
 <h2 id="week2"><a href="#week2" class="headerlink" title="week2"></a>week2</h2><h3 id="ENCODE"><a href="#ENCODE" class="headerlink" title="ENCODE"></a>ENCODE</h3><p>首先看到新佛曰即可想到与佛论禅，放进去解密，能得到一串既见未来，为何不拜？的内容，由于标点符号和Ook编码类似，这里猜测是Ook加密，放进去解出一串乱码，通过#@等符号的多次出现想到VBS加密，直接解密即可得到flag</p>
 <h3 id="dlohesuoHesaB"><a href="#dlohesuoHesaB" class="headerlink" title="dlohesuoHesaB"></a>dlohesuoHesaB</h3><p>把题目倒过来即为basehousehold，猜测原题也需要将文本倒过来，于是写了python脚本将文本逆序放进去进行base解码，发现能够实现，但之后即使倒序也不能解码，于是想到使用basecrack，将倒序后的文本放进去爆破即可得到flag</p>
 <h3 id="Hamburger-Souls"><a href="#Hamburger-Souls" class="headerlink" title="Hamburger Souls"></a>Hamburger Souls</h3><p>根据题目描述猜测flag在图片中，将图片放在winhex中直接搜索就能找到flag</p>
-<h2 id="week2-1"><a href="#week2-1" class="headerlink" title="week2"></a>week2</h2>
+<h2 id="week3"><a href="#week3" class="headerlink" title="week3"></a>week3</h2>
         </div>
         <!-- .entry-content -->
         <div class="single-reward">
@@ -422,7 +422,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -434,10 +434,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '../../../../content.json',
