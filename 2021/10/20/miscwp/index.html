@@ -357,7 +357,7 @@
 <h2 id="week3"><a href="#week3" class="headerlink" title="week3"></a>week3</h2><h3 id="Easypython"><a href="#Easypython" class="headerlink" title="Easypython"></a>Easypython</h3><p>下载后发现文本中只有一行数据，但是超过了ASCII码的范围，又因为数字均不超过8，猜测为8进制，转换后重新换成ASCII码就可得到</p>
 <h3 id="Pork-Factory"><a href="#Pork-Factory" class="headerlink" title="Pork Factory"></a>Pork Factory</h3><p>根据hint下载工具cloacked-pixel，图片中的为猪圈密码，解码后得到密码MEAT，使用此密码分离出一个网址，打开后发现是一个倾斜的二维码，用zbar后可进行扫码，得到的结果能看出是培根密码，再次解密即可得到flag</p>
 <h3 id="EasyDisk"><a href="#EasyDisk" class="headerlink" title="EasyDisk"></a>EasyDisk</h3><p>下载后得到一个ad1文件和一张图片，根据题目下载FTK Imager，进行ad1解密，发现需要密码，再去看图片，明显能看出图片不完整，放进winhex中修改图片高度即可得到密码，继续进行ad1解密，得到一张完全一样的图片，猜测为盲水印，用python脚本matplotlib对图片操作，得到一张图片，上面的即为flag</p>
-<h3 id="周深的声音"><a href="#周深的声音" class="headerlink" title="周深的声音"></a>周深的声音</h3><p>根据题目下载deepsound，放入音频分离出flag.txt，内容格式看出是base64编码的图片，将其转成图片，在kali中用outgress分离处flag</p>
+<h3 id="周深的声音"><a href="#周深的声音" class="headerlink" title="周深的声音"></a>周深的声音</h3><p>根据题目下载deepsound，放入音频分离出flag.txt，内容格式看出是base64编码的图片，将其转成图片，在kali中用outguess分离处flag</p>
 
         </div>
         <!-- .entry-content -->
@@ -444,7 +444,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -456,10 +456,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            // PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
         },
         ROOT_URL: '/',
         CONTENT_URL: '../../../../content.json',
