@@ -325,7 +325,7 @@
 
   <div class="pattern-center single-center">
     <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(https://gitee.com/zerosai7/images/raw/master/customs/msf.jpg);" src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v1.2/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://gitee.com/zerosai7/images/raw/master/customs/msf.jpg">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(http://zerosai7.gitee.io/images/customs/msf.jpg);" src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v1.2/img/loader/orange.progress-bar-stripe-loader.svg" data-src="http://zerosai7.gitee.io/images/customs/msf.jpg">
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
@@ -365,26 +365,26 @@
 <p>此做之前建议下载的镜像不要是最新版的，版本最好早一点，这样更容易成功</p>
 <h1 id="攻击过程"><a href="#攻击过程" class="headerlink" title="攻击过程"></a>攻击过程</h1><p>因为kali自带msfconsole，这里就在kali进行操作了QAQ</p>
 <p>打开终端，输入msfconsole进入攻击程序</p>
-<p><img src="https://gitee.com/zerosai7/images/raw/master/customs/image-20220120202015300.png" alt="image-20220120202015300"></p>
+<p><img src="http://zerosai7.gitee.io/images/customs/image-20220120202015300.png" alt="image-20220120202015300"></p>
 <p>选用的攻击模块是ms17_010漏洞，使用search指令查看相关信息</p>
 <pre><code>search smb_ms17_010
 </code></pre>
-<p><img src="https://gitee.com/zerosai7/images/raw/master/customs/image-20220120202441644.png" alt="image-20220120202441644"></p>
+<p><img src="http://zerosai7.gitee.io/images/customs/image-20220120202441644.png" alt="image-20220120202441644"></p>
 <p>知道该漏洞的名称之后就可以用use指令使用该漏洞，即可使用该攻击模块，成功使用后左侧会显示相应的攻击模块</p>
 <pre><code>use auxiliary/scanner/smb/smb_ms17_010
 </code></pre>
-<p> <img src="https://gitee.com/zerosai7/images/raw/master/customs/image-20220120203020955.png" alt="image-20220120203020955"></p>
+<p> <img src="http://zerosai7.gitee.io/images/customs/image-20220120203020955.png" alt="image-20220120203020955"></p>
 <p>用<code>options</code>查看需要设置的内容，Required表示是否需要设置，yes表示的是必须要初始化，Current Setting表示当前设置的内容</p>
-<p><img src="https://gitee.com/zerosai7/images/raw/master/customs/image-20220120203251689.png" alt="image-20220120203251689"></p>
+<p><img src="http://zerosai7.gitee.io/images/customs/image-20220120203251689.png" alt="image-20220120203251689"></p>
 <p>如果要对其中某一项进行修改或者设定初值，使用<code>set</code>指令进行修改，以本机和靶机的ip和端口设置为例，其中LHOSTS是listen hosts，表示本机的ip，LPORT表示本机的端口，RHOSTS是remote hosts，表示靶机的ip，RPORT表示靶机的端口，若要设置本机的ip，若ip为192.168.2.3，指令为</p>
 <pre><code>set lhosts 192.168.2.3
 </code></pre>
 <p>这里的漏洞可以看到只需要设置靶机的ip和端口即可，用<code>check</code>指令可以查看靶机是否具有此漏洞（更多指令在help里面可以查看，这里就不细说）设置完后执行<code>run</code>或者<code>exploit</code>进行攻击（攻击前记得关掉靶机的防火墙，否则会攻击失败，可以看看本机和靶机能否互相ping通，若能ping通才能进行攻击），显示win则攻击成功</p>
-<p><img src="https://gitee.com/zerosai7/images/raw/master/customs/1.png" alt="1"></p>
-<p><img src="https://gitee.com/zerosai7/images/raw/master/customs/2.png" alt="2"></p>
+<p><img src="http://zerosai7.gitee.io/images/customs/1.png" alt="1"></p>
+<p><img src="http://zerosai7.gitee.io/images/customs/2.png" alt="2"></p>
 <p>攻击成功后进入meterpreter界面，可进行攻击操作，可以通过help查看，这里举几个例子。例如上图中执行<code>ipconfig</code>就能查看靶机的ip，执行<code>shell</code>获取shell控制权，简单的弹一个计算器展示效果</p>
-<p><img src="https://gitee.com/zerosai7/images/raw/master/customs/3.png" alt="3"></p>
-<p><img src="https://gitee.com/zerosai7/images/raw/master/customs/4.png" alt="4"></p>
+<p><img src="http://zerosai7.gitee.io/images/customs/3.png" alt="3"></p>
+<p><img src="http://zerosai7.gitee.io/images/customs/4.png" alt="4"></p>
 <p>其他指令和cmd都一样，就不做过多描述，还有些指令，例如<code>upload</code>上传文件，<code>ps</code>查看进程等，这里就不一一赘述，感兴趣的可以自行尝试</p>
 
         </div>
@@ -419,7 +419,7 @@
           
             <a href="../../21/msf-bla/" rel="prev">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v1.2/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://gitee.com/zerosai7/images/raw/master/customs/msf-b.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://gitee.com/zerosai7/images/raw/master/customs/msf-b.jpg">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v1.2/img/loader/orange.progress-bar-stripe-loader.svg" data-src="http://zerosai7.gitee.io/images/customs/msf-b.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="http://zerosai7.gitee.io/images/customs/msf-b.jpg">
               </div>
               <span class="label">
               Previous Post</span>
@@ -437,7 +437,7 @@
           
             <a href="../picgo/" rel="next">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v1.2/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://gitee.com/zerosai7/images/raw/master/customs/picgo.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://gitee.com/zerosai7/images/raw/master/customs/picgo.jpg">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v1.2/img/loader/orange.progress-bar-stripe-loader.svg" data-src="http://zerosai7.gitee.io/images/customs/picgo.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="http://zerosai7.gitee.io/images/customs/picgo.jpg">
               </div>
               <span class="label">
               Next Post</span>
@@ -489,7 +489,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -501,10 +501,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            // PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
         },
         ROOT_URL: '/',
         CONTENT_URL: '../../../../content.json',
